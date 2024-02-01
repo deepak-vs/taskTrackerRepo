@@ -34,6 +34,8 @@ const createdBy="Deepak";
 let taskIndex=1;
 let taskArray=[];
 
+
+//takes number of tasks and add the tasks into taskArray
 const addTasks=(numberOfTasks)=>{
         for(let taskIndex=1;taskIndex<=numberOfTasks;taskIndex++){
             console.log(`Add Your ${taskIndex} Task :: `)
@@ -42,6 +44,8 @@ const addTasks=(numberOfTasks)=>{
     }
 }
 
+
+//Adds task to taskArray and consoles the confirmation after 2 seconds
 const addTask=(taskName)=>{
     let timeStamp=new Date().getTime();
 
@@ -64,6 +68,8 @@ const addTask=(taskName)=>{
     },2000)
 }
 
+
+//completes the task by setting iscomplete field to true and adds completionTimeStamp and completedBy user
 const completeTask=(taskName,completedBy)=>{
     let task=taskArray.find((task)=>{
         return task.taskName===taskName;
@@ -77,6 +83,8 @@ const completeTask=(taskName,completedBy)=>{
     task.meta.completedBy=completedBy;
 }
 
+
+//Displays the remaining tasks to the console
 const displayRemainingTasks=()=>{
     let remainingTask=taskArray.filter((task)=>{
         return !task.isComplete
@@ -89,6 +97,9 @@ const displayRemainingTasks=()=>{
     }
     
 }
+
+
+//console the remaining (incompleted) tasks after every 2 minutes
 const feature=()=>{
     setInterval(()=>{
         displayRemainingTasks();
